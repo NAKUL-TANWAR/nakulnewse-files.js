@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <script>
+    function load(){
+      var request = new XMLHttpRequest();
+      request.open("GET","about.html");
+      request.onreadystatechange = function() {
+        if(request.readyState ==4 && request.status == 200){
+          console.log(request.responseText);
+          document.getElementById("continer").innerHTML=request.responseText;
+        }
+      };
+      request.send();
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <h2>We are learning AJAX</h2>
+  <p>Learning is good to do</p>
+  <h1><a href="about.html">About</a></h1>
+  <button onclick="load()">Load About</button>
+  <div id="continer"></div>
+</body>
+</html>
